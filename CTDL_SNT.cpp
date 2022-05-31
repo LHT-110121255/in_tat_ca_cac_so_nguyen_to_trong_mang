@@ -5,7 +5,7 @@ bool snt(int n);
 void nhap(int *arr, int n);
 void xuat(int *arr, int n);
 void out_all_snt(int *arr, int n);
-
+int dem_snt(int *arr, int n);
 int main()
 {
 	int n; 
@@ -14,6 +14,7 @@ int main()
 	int arr[n];
 	nhap(arr, n);
 	out_all_snt(arr, n);
+	printf("\nCo %d so nguyen to trong mang", dem_snt(arr, n));
 }
 void nhap(int *arr, int n)
 {
@@ -55,5 +56,13 @@ void out_all_snt(int *arr, int n)
 {
 	int i;
 	for(i = 1; i <= n; i++)
-		(snt(arr[i])) ? printf("\n%d la so nguyen to ", arr[i]) : printf("\n%d khong la so nguyen to", arr[i]);
+		(snt(arr[i])) ? printf("\n%d la so nguyen to ", arr[i]) : i;
+}
+int dem_snt(int *arr, int n)
+{
+	int dem = 0;
+	int i;
+	for(i = 1; i <= n; i++)
+		(snt(arr[i])) ? ++dem: dem;
+	return dem;
 }
